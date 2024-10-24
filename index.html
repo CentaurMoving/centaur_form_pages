@@ -160,7 +160,7 @@
       document.getElementById('start').setAttribute('max', maxDate);
       // func get URL parameters
       function getUrlParams() {
-        const params = new URLSearchParams(window.location.search);
+        const params = new URLSearchParams(window.parent.location.search);
         return {
           utm_source: params.get('utm_source') || '',
           utm_medium: params.get('utm_medium') || '',
