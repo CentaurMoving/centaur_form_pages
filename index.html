@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/submit" method="POST" class="andy-form">
+      <div class="card-header">
+        <h2>Get A Moving Quote</h2>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="start">Move Date</label>
+              <div class="input-group">
+                <input type="date" id="start" name="trip-start" />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="full-name">Full Name</label>
+              <input
+                id="full-name"
+                type="text"
+                name="name"
+                data-vv-validate-on="none"
+                placeholder="Full Name"
+                aria-label="Full Name"
+                class="form-control"
+                aria-required="true"
+                aria-invalid="false"
+                required
+              />
+              <span class="help is-danger" style="display: none">
+                This field is required</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="tel">Phone Number</label>
+              <input
+                id="tel"
+                type="tel"
+                name="phone"
+                data-vv-validate-on="none"
+                placeholder="Phone Number"
+                class="form-control"
+                aria-required="true"
+                aria-invalid="false"
+                required
+              />
+              <span class="help is-danger" style="display: none"
+                >This field must be a valid phone number</span
+              >
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                data-vv-validate-on="none"
+                placeholder="Email"
+                aria-label="Email"
+                class="form-control"
+                aria-required="true"
+                aria-invalid="false"
+              /><span class="help is-danger" style="display: none">
+                This field must be a valid Email address</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="origin-address">Origin Address / Postal Code</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                </div>
+                <input
+                  id="origin-address"
+                  type="text"
+                  name="origin"
+                  data-vv-validate-on="none"
+                  placeholder="Origin"
+                  class="form-control"
+                  aria-required="true"
+                  aria-invalid="false"
+                />
+              </div>
+              <span class="help is-danger" style="display: none"
+                >This field is required</span
+              >
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="destination-address"
+                >Destination Address / Postal Code</label
+              >
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                </div>
+                <input
+                  id="destination-address"
+                  type="text"
+                  name="destination"
+                  data-vv-validate-on="none"
+                  placeholder="Destination"
+                  class="form-control"
+                  aria-required="true"
+                  aria-invalid="false"
+                />
+              </div>
+              <span class="help is-danger" style="display: none"
+                >This field is required</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="submit">Get Estimate Now</button>
+      </div>
+      <input type="text" name="utm_source" id="utm_source" />
+      <input type="text" name="utm_medium" id="utm_medium" />
+      <input type="text" name="utm_campaign" id="utm_campaign" />
+      <input type="text" name="utm_term" id="utm_term" />
+      <input type="text" name="utm_content" id="utm_content" />
+    </form>
+    <script>
+      // get today's date to disable past
+      const today = new Date().toISOString().split('T')[0];
+      const oneYearFromToday = new Date();
+      oneYearFromToday.setFullYear(oneYearFromToday.getFullYear() + 1);
+      const maxDate = oneYearFromToday.toISOString().split('T')[0];
+      // set the 'min' attribute to today’s date
+      document.getElementById('start').setAttribute('min', today);
+      document.getElementById('start').setAttribute('max', maxDate);
+      // func get URL parameters
+      function getUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+          utm_source: params.get('utm_source') || '',
+          utm_medium: params.get('utm_medium') || '',
+          utm_campaign: params.get('utm_campaign') || '',
+          utm_term: params.get('utm_term') || '',
+          utm_content: params.get('utm_content') || '',
+        };
+      }
+      // Populate hidden fields with UTM parameters
+      function populateUtmFields() {
+        const utmParams = getUrlParams();
+        document.getElementById('utm_source').value = utmParams.utm_source;
+        document.getElementById('utm_medium').value = utmParams.utm_medium;
+        document.getElementById('utm_campaign').value = utmParams.utm_campaign;
+        document.getElementById('utm_term').value = utmParams.utm_term;
+        document.getElementById('utm_content').value = utmParams.utm_content;
+      }
+      // Run when the page loads
+      window.onload = function () {
+        populateUtmFields();
+      };
+    </script>
+  </body>
+</html>

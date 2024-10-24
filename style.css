@@ -1,0 +1,126 @@
+form.andy-form {
+  max-width: 700px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Card Header */
+form.andy-form .card-header h2 {
+  text-align: left;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Card Body */
+form.andy-form .card-body {
+  margin-bottom: 30px;
+  border-bottom: 2px solid rgb(232, 232, 232);
+}
+
+form.andy-form .row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+}
+form.andy-form .col-sm {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  min-width: 280px;
+  padding-inline: 10px;
+}
+
+form.andy-form .form-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+form.andy-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* Input Fields */
+form.andy-form input[type='email'],
+form.andy-form input[type='text'],
+form.andy-form input[type='tel'],
+form.andy-form input[type='date'] {
+  width: 100%; /* Ensure inputs take full width of the form-group */
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+form.andy-form input[type='text']:focus,
+form.andy-form input[type='tel']:focus,
+form.andy-form input[type='date']:focus {
+  border-color: #6eb4ff;
+  outline: none;
+  /* box-shadow: 0 0 50px rgba(0, 123, 255, 0.5); */
+}
+
+form.andy-form input::placeholder {
+  color: #999;
+}
+
+/* Input Group */
+form.andy-form .input-group {
+  display: flex;
+  align-items: center;
+  /* border: 1px solid #ccc; */
+  /* height: 100%; */
+}
+
+form.andy-form .input-group-icon {
+  color: #555;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-right: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+form.andy-form .input-group-icon i {
+  font-size: 18.5px;
+}
+
+form.andy-form .form-group {
+  margin-bottom: 20px;
+}
+
+/* Button */
+form.andy-form button {
+  display: block;
+  width: 100%;
+  padding: 17px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  /* border-radius: 4px; */
+  font-size: 18px;
+  cursor: pointer;
+}
+
+form.andy-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Error Message */
+form.andy-form .help.is-danger {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+}
